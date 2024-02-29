@@ -48,12 +48,10 @@ function storePassword(name, p1, p2){
 }
 
 // Test Cases
-console.log(validatePassword("Hey12345", "Hey12345"))
+console.log(validatePassword("eyy12345H", "eyy12345H"))
 console.log(validatePassword("HEY12345", "HEY12345"))
 console.log(reversePassword("Hey12345"))
 console.log(storePassword("Neil", "Hey12345", "ey12345"))
 console.log(storePassword("John", "Pass1234", "Pass1234"))
 console.log(storePassword("John", "Pass12345", "Pass12345"))
-console.log(validatePassword("HELLO1234", "HELLO1234"))
 console.log(storePassword("nene","1", "1"))
-console.log(validatePassword("Hello1234", "Hello1234"))
