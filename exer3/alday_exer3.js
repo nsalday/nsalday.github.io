@@ -36,21 +36,24 @@ function reversePassword(str){
 
 // Stores a new password of the user
 function storePassword(name, p1, p2){
-    var newPass = 'name: "' + name + '"' + ', newpassword: "' // newPass is added with the name and other strings
-    if(p1 == p2){ // If the two passwords match...
-        newPass += reversePassword(p1) + '"' //add the new password to newPass with its reversed state
+    var newPass = ""
+    if(validatePassword(p1, p2) == true){ // If the two passwords match...
+        newPass = reversePassword(p1) // add the new password to newPass with its reversed state
     } else {
-        newPass += p1 + '"' // If they don't match, the newPass is still the p1
+        newPass = p1  // If they don't match, the newPass is still the p1
     }
 
-    return newPass // return newPass
+    const user1 = {name: name, newpassword: newPass} //object
+    return user1 // return user1
 }
 
 // Test Cases
 console.log(validatePassword("Hey12345", "Hey12345"))
+console.log(validatePassword("HEY12345", "HEY12345"))
 console.log(reversePassword("Hey12345"))
 console.log(storePassword("Neil", "Hey12345", "ey12345"))
 console.log(storePassword("John", "Pass1234", "Pass1234"))
-console.log(storePassword("John", "Pass123", "Pass12345"))
+console.log(storePassword("John", "Pass12345", "Pass12345"))
 console.log(validatePassword("HELLO1234", "HELLO1234"))
+console.log(storePassword("nene","1", "1"))
 console.log(validatePassword("Hello1234", "Hello1234"))
