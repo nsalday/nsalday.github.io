@@ -1,5 +1,5 @@
 /*
-    Name: Neil Vincet S. Alday
+    Name: Neil Vincent S. Alday
     Section: UV-3L
     Exercise 3: JavaScript Basics part 1
 */
