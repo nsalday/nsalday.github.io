@@ -13,12 +13,26 @@ function validatePassword(p1, p2){
 }
 
 function reversePassword(str){
+    var newStr = ""
 
+    for(var i = str.length - 1; i >= 0; i--){
+        newStr += str[i]
+    }
+
+    return newStr
 }
 
 function storePassword(name, p1, p2){
+    var newPass = 'name: "' + name + '"' + ', newpassword: "'
+    if(p1 == p2){
+        newPass += reversePassword(p1) + '"'
+    } else {
+        newPass += p1 + '"'
+    }
 
+    return newPass
 }
 
 console.log(validatePassword("Hey12345", "Hey12345"))
 console.log(reversePassword("Hey12345"))
+console.log(storePassword("Neil", "Hey12345", "ey12345"))
