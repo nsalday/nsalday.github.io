@@ -2,13 +2,13 @@ const fs = require('fs');
 const {v4 : uuidv4} = require('uuid')
 const validator = require('validator');
 
-// Generates a 
+//Generates a unique ID for a given user
 function generateUniqueID(firstName, lastName){
-    var newFirst = firstName.slice(0,1);
-    const userID = uuidv4().slice(0,8)
-    var newName = newFirst.toLowerCase() + lastName.toLowerCase() + userID;
+    var newFirst = firstName.slice(0,1); //Gets the first character of the user
+    const userID = uuidv4().slice(0,8) //Gets the first 8 characters in the generated ID
+    var newName = newFirst.toLowerCase() + lastName.toLowerCase() + userID; //Concatenates newFirst and userID
 
-    return newName
+    return newName //returns newName
 }
 
 function addAccount(firstName, lastName, email, age){
