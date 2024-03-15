@@ -9,7 +9,7 @@ app.post("/add-book", (req, res) => {
   const { bookName, isbn, author, yearPublished } = req.body;
 
   if (bookName == "" || isbn == "" || author != "" || yearPublished != "") {
-    res.status(400).send("Not all the given fields are non-empty");
+    res.status(400).json({message: "Not all the given fields are non-empty"});
   }
 
   appendFileSync(
@@ -28,11 +28,19 @@ app.post("/add-book", (req, res) => {
 });
 
 app.get("/find-by-isbn-author", (req, res) => {
-  res.send("Hello " + req.query.name);
+    const {isbn, author} = req.query;
+    
+    if(isbn == '' || author == ''){
+        res.status(400).json({message: "Not all the given fields are non-empty"});
+    }
 });
 
 app.get("/find-by-isbn-author", (req, res) => {
-    
+    const {author} = req.query;
+
+    if(author == ''){
+        res.status(400).json({message: "Not all the given fields are non-empty"});
+    }
 });
 
 // this tells our server to listen to the port 3000
