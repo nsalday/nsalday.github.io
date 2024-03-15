@@ -12,10 +12,10 @@ needle.post(
   "http://localhost:3000/add-book", // URL that holds book list
   // Sample book details
   {
-    bookName: "Harry Potter and the Chamber of Secrets",
-    isbn: "0-7475-3849-2",
-    author: "J.K Rowling",
-    yearPublished: "1998",
+    bookName: "The Little Prince",
+    isbn: "978-0156012195",
+    author: "Antoine Saint-Exupery",
+    yearPublished: "1943",
   }, // Error catcher
   (err, res) => {
     if (err) {
