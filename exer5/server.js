@@ -19,7 +19,7 @@ function readBooksFromFile() {
   const lines = data.split("\n");
   const books = [];
 
-  //Push book details to books list 
+  //Push book details to books list
   for (const line of lines) {
     const [bookName, isbn, author, yearPublished] = line.split(",");
     books.push({ bookName, isbn, author, yearPublished });
@@ -31,7 +31,7 @@ function readBooksFromFile() {
 app.post("/add-book", (req, res) => {
   const { bookName, isbn, author, yearPublished } = req.body;
 
-  // Check if all required fields are present. 
+  // Check if all required fields are present.
   if (!bookName || !isbn || !author || !yearPublished) {
     return res.json({ success: false }); // If not, return success is false meaning the book will not be added
   }
@@ -39,7 +39,14 @@ app.post("/add-book", (req, res) => {
   // Write book details to books
   appendFileSync(
     "books.txt",
-    '${bookName},${isbn},${author},${yearPublished}\n',
+    req.body.bookName +
+      "," +
+      req.body.isbn +
+      "," +
+      req.body.author +
+      "," +
+      req.body.yearPublished +
+      "\n",
     "UTF-8",
     { flags: "a+" }
   );
@@ -53,14 +60,13 @@ app.get("/find-by-isbn-author", (req, res) => {
 
   // Check if ISBN and Author fields are empty, if they are return nothing
   if (!isbn || !author) {
-    res
-      .status(400)
-      .json({ message: "ISBN and Author fields are empty" });
+    res.status(400).json({ message: "ISBN and Author fields are empty" });
     return;
   }
 
   const books = readBooksFromFile(); // Read books' details from books.txt
-  const matchingBooks = books.filter( // Find any matching books based from the given author and isbn
+  const matchingBooks = books.filter(
+    // Find any matching books based from the given author and isbn
     (book) => book.isbn === isbn && book.author === author
   );
 
@@ -82,7 +88,6 @@ app.get("/find-by-author", (req, res) => {
     res.status(400).json({ message: "Author field is empty!" });
     return;
   }
-
 
   const books = readBooksFromFile(); // Read books from books.txt
   const matchingBooks = books.filter((book) => book.author === author); // Find matching books based from the given author
