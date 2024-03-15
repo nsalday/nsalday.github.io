@@ -8,7 +8,7 @@ needle.post(
     bookName: "Harry Potter and the Chamber of Secrets",
     isbn: "0-7475-3849-2",
     author: "J.K Rowling",
-    yearPublished: "",
+    yearPublished: "1998",
   }, // Error catcher
   (err, res) => {
     if (err) {
