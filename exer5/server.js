@@ -1,20 +1,34 @@
+import { appendFileSync } from "fs";
+
 import express from "express";
 
-// instantiate the server
-const app = express();
+const app = express()
 
-// this tells our app to listen for GET messages on the '/' path
-// the callback function specifies what the server will do when a message is received
+
 app.post("/add-book", (req, res) => {
-    const {bookName, isbn, author, yearPublished} = req.body;
+  const { bookName, isbn, author, yearPublished } = req.body;
 
-    if (bookName != '' && isbn != '' && author != '' && yearPublished != ''){
-        //save data
-    }
+  if (bookName == "" || isbn == "" || author != "" || yearPublished != "") {
+    res.status(400).send("Not all the given fields are non-empty");
+  }
+
+  appendFileSync(
+    "books.txt",
+    req.body.bookName +
+      "," +
+      req.body.isbn +
+      "," +
+      req.body.author +
+      "," +
+      req.body.yearPublished +
+      "\n",
+    "UTF-8",
+    { flags: "a+" }
+  );
 });
 
 app.get("/find-by-isbn-author", (req, res) => {
-    res.send('Hello ' + req.query.name)
+  res.send("Hello " + req.query.name);
 });
 
 app.get("/find-by-isbn-author", (req, res) => {
