@@ -19,10 +19,10 @@ const saveStudent = async (req, res) => {
 
 // Controller function to update a user document in the database
 const updateUser = async (req, res) => {
-  const { fname } = req.body;
+  const { fname, lname } = req.body;
   const result = await Student.updateOne(
     { fname },
-    { $set: { lname: "Parker" } }
+    { $set: { lname } }
   );
   if (result.modifiedCount > 0) {
     res.json({ updated: true });
