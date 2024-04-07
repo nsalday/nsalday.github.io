@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Connecting to the MongoDB database named "StudentDatabase" running locally
-await mongoose.connect("mongodb://127.0.0.1:27017/StudentDatabase");
+await mongoose.connect("mongodb://localhost:27017/StudentDatabase");
 
 // Creating a Mongoose model named "Student" representing the structure of a student document in the database
 const Student = mongoose.model("Student", {
@@ -9,7 +9,7 @@ const Student = mongoose.model("Student", {
   fname: String,
   lname: String,
   age: Number,
-});
+}, 'studentData');
 
 // Controller function to save a student document to the database
 const saveStudent = async (req, res) => {
