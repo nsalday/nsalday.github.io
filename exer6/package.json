@@ -1,0 +1,10 @@
+{
+  "name": "exer6",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.3.0",
+    "needle": "^3.3.1"
+  }
+}
