@@ -65,15 +65,15 @@ const findMembers = () => {
 };
 
 // Running the test functions in sequence.
+// Uncomment to test
 console.log('Starting tests...');
-savestudentData();
-// findMembers;
-// updateStudent; 
-// findStudent;
-// findMembers
-// removeStudent;
-// findStudent;
-// findMembers
-// removeAllstudentData;
-// findStudent;
-// findMembers
+// savestudentData();
+// findMembers();
+// updateStudent(); 
+// findStudent();
+// findMembers();
+// removeStudent();
+// findStudent();
+// // findMembers();
+// removeAllstudentData();
+// setTimeout(findMembers, 1000);
