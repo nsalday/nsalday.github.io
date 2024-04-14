@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Food Ranking</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <form id="submitForm">
+            <label for="foodName">Food Name:</label><br>
+            <input type="text" id="foodName" name="foodName" required><br>
+            <label for="desc">Description:</label><br>
+            <input type="text" id="desc" name="desc" required><br>
+            <label for="imageURL">Image URL:</label><br>
+            <input type="text" id="imageURL" name="imageURL" required><br>
+            <label for="rank">Rank:</label><br>
+            <input type="number" id="rank" name="rank" required><br>
+            <br>
+            <input type="submit" value="Submit"><br>
+        </form>
+        <div id="cardsContainer"></div>
+        <script src="http://localhost:3000/form.js"></script>
+    </body>
+</html>
