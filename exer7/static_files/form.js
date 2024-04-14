@@ -22,11 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const img = document.createElement("img");
         const name = document.createElement("h2");
         const desc = document.createElement("p");
+        const rankDisplay = document.createElement("div");
         const deleteButton = document.createElement("button");
 
         img.src = imageURL;
         name.textContent = foodName;
         desc.textContent = description;
+        rankDisplay.textContent = `${rank}`;
+        rankDisplay.className = 'rank-display';
         deleteButton.textContent = "Delete";
         deleteButton.onclick = function() {
             const row = card.parentNode;
@@ -36,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
 
+        card.appendChild(rankDisplay)
         card.appendChild(name);
         card.appendChild(desc);
         card.appendChild(img);
@@ -47,13 +51,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function insertCardByRank(card, rank) {
-        const rows = cardsContainer.querySelectorAll('.row');
-        let lastRow = rows[rows.length - 1];
-        if (!lastRow || lastRow.children.length === 5) {
-            lastRow = document.createElement('div');
-            lastRow.className = 'row';
-            cardsContainer.appendChild(lastRow);
+        const allCards = Array.from(cardsContainer.querySelectorAll('.card'));
+        allCards.forEach(existingCard => {
+            const existingRank = parseInt(existingCard.style.order, 10);
+            if (existingRank >= rank) {
+                existingCard.style.order = existingRank + 1;
+                existingCard.querySelector('.rank-display').textContent = `${existingRank + 1}`;
+            }
+        });
+    
+        card.style.order = rank;
+    
+        allCards.push(card);
+        allCards.sort((a, b) => parseInt(a.style.order, 10) - parseInt(b.style.order, 10));
+    
+        while (cardsContainer.firstChild) {
+            cardsContainer.removeChild(cardsContainer.firstChild);
         }
-        lastRow.appendChild(card);
+    
+        var currentRow;
+        allCards.forEach((sortedCard, index) => {
+            if (index % 5 === 0) {  
+                currentRow = document.createElement('div');
+                currentRow.className = 'row';
+                cardsContainer.appendChild(currentRow);
+            }
+            currentRow.appendChild(sortedCard);
+        });
     }
 });
