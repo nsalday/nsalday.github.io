@@ -1,11 +1,10 @@
-import './header.css';
+import './style.css';
 import react from 'react';
 
 const menus = [
     { name: "Appliances", url: "/appliances", id: 1 },
     { name: "Gadgets", url: "/gadgets", id: 2 },
     { name: "Accessories", url: "/accessories", id: 3 },
-
 ];
 
 const Header = () => {

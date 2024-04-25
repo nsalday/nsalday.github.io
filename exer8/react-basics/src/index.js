@@ -1,3 +1,6 @@
+/*
+  This file renders root which is App.js
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

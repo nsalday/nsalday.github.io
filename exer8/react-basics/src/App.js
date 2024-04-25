@@ -1,3 +1,9 @@
+/*
+  Author: Neil Vincent S. Alday
+  Represents as the main of the react-app
+  - This handles the routes/ paths of the app
+*/
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/header-component';
@@ -10,8 +16,9 @@ function App() {
     <Router>
       <div>
         <Header />
+        <p>Add items to your cart!</p>
         <Routes>
-          <Route path="/accessories" element={<Accessories/>}/>
+          <Route path="/accessories" element={<Accessories/>}/> 
           <Route path="/appliances" element={<Appliances/>}/>
           <Route path="/gadgets" element={<Gadgets/>}/>
         </Routes>
