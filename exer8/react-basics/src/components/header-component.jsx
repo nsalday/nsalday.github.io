@@ -8,7 +8,7 @@ const menus = [
 
 ];
 
-function Header() {
+const Header = () => {
     return (
         <header className="header">
             <p>Lazado</p>
