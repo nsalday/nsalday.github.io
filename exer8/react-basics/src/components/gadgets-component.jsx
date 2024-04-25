@@ -1,9 +1,15 @@
+/*
+    This is the gadgets component. This renders gadgets in the page and allows user to add these to the cart
+*/
+
 import './style.css';
 
+// Prints out that the current item is addded to cart
 const handleClick = (label) => {
     console.log(`Added ${label} to Cart!`);
 }
 
+// List of gadgets to be rendered in the page
 const gadgets = [
     { src: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-card-40-iphone15prohero-202309_FMT_WHH?wid=508&hei=472&fmt=p-jpg&qlt=95&.v=1693086369818", label: "Iphone" },
     { src: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-finish-select-202212-11inch-space-gray-wifi_AV1_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1670865948534", label: "Ipad" },
@@ -11,6 +17,8 @@ const gadgets = [
     { src: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mba13-midnight-select-202402?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1708367688034", label: "Macbook" },
     { src: "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-pro-tower-hero-cto_FMT_WHH?wid=550&hei=650&fmt=jpeg&qlt=90&.v=1684351792368", label: "Mac Pro" },
   ];
+
+// Renders images and buttons in the page
 const Gadgets = () => {
     return (
         <div>
