@@ -1,0 +1,10 @@
+Author
+    - Neil Vincent S. Alday
+Section
+    - UV3L
+Code Description:
+    - The program or application simulates an e-commerce website where a user could be able to add items to their cart
+    from various categories. This can be shown seen here through the implementation of the MERN Stack. 
+    - To run the application, do the following in the terminal:
+        - cd react-basics
+        - npm start
