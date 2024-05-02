@@ -1,0 +1,41 @@
+/*
+  Styles the entire look of the app
+*/
+
+.header {
+    background-color: #5ea9ff;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+  }
+
+.container {
+  position: relative;
+  display: inline-block; 
+}
+
+.image {
+  border: 2px solid #3c3b3b;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.button {
+  position: absolute;
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  padding: 8px 16px; 
+  background-color: rgb(3, 125, 255); 
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+  
