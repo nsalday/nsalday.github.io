@@ -19,9 +19,12 @@ const ShoppingCartComponent = ({items, onDelete}) => {
         setItemsInCart(items);
     }, [items]); // This will update itemsInCart whenever items prop changes
     
+    // Calculate total quantity of items
+    const totalQuantity = itemsInCart.reduce((acc, item) => acc + item.qty, 0);
+
     return (
         <div>
-            <p>Shopping Cart Total {itemsInCart.length}</p>
+            <p>Shopping Cart (Total: {totalQuantity})</p>
             {items.map((item, index) => (
                 <ItemComponent 
                     item={item} 

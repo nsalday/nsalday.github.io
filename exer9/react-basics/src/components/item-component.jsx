@@ -10,8 +10,8 @@ const ItemComponent = ({item, items, setItemsInCart, onDelete}) => {
     };
 
     return (
-        <div className='flex-container'>
-            <p>{item.label} QTY</p>
+        <div className='item-container'>
+            <p>{item.label} QTY: {item.qty}</p>
             <button className='delete' onClick={() => handleDelete(item.id)}>X</button>
         </div>
     );
