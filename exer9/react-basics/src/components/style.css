@@ -38,4 +38,8 @@
   border: none;
   cursor: pointer;
 }
+
+.flex-container {
+  flex-wrap: wrap;
+}
   

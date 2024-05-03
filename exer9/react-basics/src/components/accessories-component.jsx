@@ -3,11 +3,8 @@
 */
 
 import './style.css';
-
-// Prints out that the current item is addded to cart
-const handleClick = (label) => {
-    console.log(`Added ${label} to Cart!`);
-}
+import ShoppingCartComponent from '../components/shopping-cart-component.jsx';
+import { useState } from 'react';
 
 // List of accessories to be rendered in the page
 const accessoies = [
@@ -20,14 +17,33 @@ const accessoies = [
 
 // Renders images and buttons in the page
 const Accessories = () => {
+    const [items, setItems] = useState([]);
+
+    const handleClick = (accessory) => {
+        const newItem = {
+            ...accessory,
+            id: Date.now()  // Adding a unique identifier
+        };
+        setItems(prev => [...prev, newItem]);  // Update the cart with the new item
+        console.log(`Added ${accessory.label} to Cart!`);
+    }
+
+    const handleDelete = (id) => {
+        setItems(items => items.filter(item => item.id !== id));
+    };
+
     return (
-        <div>
+        <div className='flex-container'>
             {accessoies.map((accessory, index) => (
-            <div className="container" key={index}>
-                <img src={accessory.src} alt={accessory.label} className="image" />
-                <button className="button" onClick={() => handleClick(accessory.label)}>Add to Cart</button>
-            </div>
+                <div className="container" key={index}>
+                    <img src={accessory.src} alt={accessory.label} className="image" />
+                    <button className="button" onClick={() => handleClick(accessory)}>
+                        Add to Cart
+                    </button>
+                </div>
             ))}
+        
+            <ShoppingCartComponent items={items} onDelete={handleDelete}/>
         </div>
     );
 }
