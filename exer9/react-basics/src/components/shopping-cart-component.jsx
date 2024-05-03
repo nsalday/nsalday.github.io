@@ -21,7 +21,7 @@ const ShoppingCartComponent = ({items, onDelete}) => {
     
     return (
         <div>
-            <p>Shopping Cart Total</p>
+            <p>Shopping Cart Total {itemsInCart.length}</p>
             {items.map((item, index) => (
                 <ItemComponent 
                     item={item} 
